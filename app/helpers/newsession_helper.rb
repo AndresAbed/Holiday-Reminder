@@ -1,0 +1,2 @@
+module NewsessionHelper
+end
