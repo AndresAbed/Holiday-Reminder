@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'carmen-rails'
 gem 'devise'
 gem 'rails_12factor', group: :production
 

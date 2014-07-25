@@ -9,9 +9,8 @@
   <div><%= f.label :username %><br />
   <%= f.text_field :username, autocomplete: "on" %></div>
 
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.country_select :country, {priority: %w(AR US), prompt: 'Please select a country'} %></div>
+  <div><%= f.label :country %><br />
+  <%= f.select :country, [['Argentina'],['USA']] %></div>
 
   <div><%= f.label :province %><br />
   <%= f.text_field :province, autocomplete: "on" %></div>
