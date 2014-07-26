@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724053516) do
+ActiveRecord::Schema.define(version: 20140726082942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "holidays", force: true do |t|
+    t.string   "title"
+    t.date     "date"
+    t.string   "reminder"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "notifications"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
