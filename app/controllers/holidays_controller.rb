@@ -4,7 +4,7 @@ class HolidaysController < ApplicationController
   # GET /holidays
   # GET /holidays.json
   def index
-    @holidays = Holiday.all
+    @holidays = current_user.holidays
     @title = "Customer's holidays"
   end
 
@@ -30,7 +30,7 @@ class HolidaysController < ApplicationController
   # POST /holidays.json
   def create
     @holiday = Holiday.new(holiday_params)
-
+    @holiday.user_id = current_user.id
     respond_to do |format|
       if @holiday.save
         format.html { redirect_to holidays_path, notice: 'Holiday was successfully created.' }
@@ -74,6 +74,6 @@ class HolidaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def holiday_params
-      params.require(:holiday).permit(:customer_name, :customer_email, :customer_country, :customer_province, :date, :reminder, :notifications)
+      params.require(:holiday).permit(:customer_name, :customer_email, :customer_country, :customer_province, :date, :reminder, :notifications, :user_id)
     end
 end
