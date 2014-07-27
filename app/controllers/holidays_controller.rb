@@ -5,7 +5,7 @@ class HolidaysController < ApplicationController
   # GET /holidays.json
   def index
     @holidays = Holiday.all
-    @title = "My holidays"
+    @title = "Customer's holidays"
   end
 
   # GET /holidays/1
@@ -16,13 +16,13 @@ class HolidaysController < ApplicationController
   # GET /holidays/new
   def new
     @holiday = Holiday.new
-    @title = "New holiday"
+    @title = "New customer"
     @buttonName = "Create"
   end
 
   # GET /holidays/1/edit
   def edit
-    @title = "Edit holiday"
+    @title = "Edit customer"
     @buttonName = "Update"
   end
 
@@ -74,6 +74,6 @@ class HolidaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def holiday_params
-      params.require(:holiday).permit(:title, :date, :reminder, :notifications)
+      params.require(:holiday).permit(:customer_name, :customer_email, :customer_country, :customer_province, :date, :reminder, :notifications)
     end
 end

@@ -10,6 +10,10 @@
   </ul>
 </div>
 
+<div id="nameLabel">
+  <h5><span class="label label-default">Hi <%= current_user.username %>!</span></h5>
+</div>
+
 <%= link_to 'New holiday', new_holiday_path, class: "btn btn-primary", id:"btn-primary" %>
 
 <div class="panel panel-primary">
@@ -20,8 +24,11 @@
   <table class="table">
     <thead>
         <tr>
-          <th><%= "Title" %></th>
-          <th><%= "Date" %></th>
+          <th><%= "Name" %></th>
+          <th><%= "Email" %></th>
+          <th><%= "Country" %></th>
+          <th><%= "Pronvince" %></th>
+          <th><%= "Holidays date" %></th>
           <th><%= "Reminder" %></th>
           <th><%= "Notifications" %></th>
           <th>Editar</th>
@@ -32,7 +39,10 @@
       <% @holidays.each do |holiday| %>
         <% if holiday.notifications %>  
           <tr>
-            <td><%= holiday.title %></td>
+            <td><%= holiday.customer_name %></td>
+            <td><%= holiday.customer_email %></td>
+            <td><%= holiday.customer_country %></td>
+            <td><%= holiday.customer_province %></td>
             <td><%= holiday.date %></td>
             <td><%= holiday.reminder %></td>
             <td id="table_button">
@@ -47,7 +57,10 @@
                 <%= link_to '', holiday, class: "icon-remove-circle icon-large", method: :delete, data: { confirm: '¿Eliminar?' } %>
             </td>
         <% else %>
-              <td><%= holiday.title %></td>
+              <td><%= holiday.customer_name %></td>
+              <td><%= holiday.customer_email %></td>
+              <td><%= holiday.customer_country %></td>
+              <td><%= holiday.customer_province %></td>
               <td><%= holiday.date %></td>
               <td><%= holiday.reminder %></td>
               <td id="table_button">

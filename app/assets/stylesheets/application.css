@@ -80,3 +80,7 @@
 	float: right;
 }
 
+#nameLabel{
+	float: right;
+	margin-right: 10px;
+}
