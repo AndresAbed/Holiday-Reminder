@@ -6,9 +6,8 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.reminder_notification.subject
   #
-  def reminder_notification(holiday)
+  def send_notification(holiday)
     @holiday = holiday
-    mail(:to => holiday.customer_email, :subject => "Your holiday reminder!")
-    UserMailer.reminder_notification(@holiday).deliver
+    mail(:to holiday.customer_email, :subject "Your holiday reminder!")
   end
 end
