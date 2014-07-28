@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727035023) do
+ActiveRecord::Schema.define(version: 20140727074551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20140727035023) do
     t.string   "reminder"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "notifications"
     t.string   "customer_name"
     t.string   "customer_country"
     t.string   "customer_province"

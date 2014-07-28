@@ -30,14 +30,12 @@
           <th><%= "Pronvince" %></th>
           <th><%= "Holidays date" %></th>
           <th><%= "Reminder" %></th>
-          <th><%= "Notifications" %></th>
           <th>Editar</th>
           <th>Eliminar</th>
         </tr>  
     </thead>
     <tbody>
       <% @holidays.each do |holiday| %>
-        <% if holiday.notifications %>  
           <tr>
             <td><%= holiday.customer_name %></td>
             <td><%= holiday.customer_email %></td>
@@ -46,35 +44,11 @@
             <td><%= holiday.date %></td>
             <td><%= holiday.reminder %></td>
             <td id="table_button">
-                <div class="icon-ok icon-large">
-                  <% holiday.notifications %>
-                </div>
-            </td>
-            <td id="table_button">
                 <%= link_to '', edit_holiday_path(holiday), class:"icon-pencil icon-large" %>
             </td>
             <td id="table_button">
                 <%= link_to '', holiday, class: "icon-remove-circle icon-large", method: :delete, data: { confirm: '¿Eliminar?' } %>
-            </td>
-        <% else %>
-              <td><%= holiday.customer_name %></td>
-              <td><%= holiday.customer_email %></td>
-              <td><%= holiday.customer_country %></td>
-              <td><%= holiday.customer_province %></td>
-              <td><%= holiday.date %></td>
-              <td><%= holiday.reminder %></td>
-              <td id="table_button">
-                <div class="icon-remove icon-large">
-                  <% holiday.notifications %>
-                </div>
-              </td>
-              <td id="table_button">
-                  <%= link_to '', edit_holiday_path(holiday), class:"icon-pencil icon-large" %>
-              </td>
-              <td id="table_button">
-                  <%= link_to '', holiday, class: "icon-remove-circle icon-large", method: :delete, data: { confirm: '¿Eliminar?' } %>
-              </td>
-        <% end %>  
+            </td> 
           </tr>
       <% end %>
     </tbody>
