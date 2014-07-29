@@ -7,3 +7,5 @@ scheduler.every '1m' do
   	holiday.notify_customer
   end
 end
+
+scheduler.join
