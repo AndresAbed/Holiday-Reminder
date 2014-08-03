@@ -21,6 +21,6 @@
 
 every 1.minute do
   Holiday.all.each do |holiday| 
-  	runner holiday.notify_customer
+  	runner "holiday.notify_customer"
   end
 end
