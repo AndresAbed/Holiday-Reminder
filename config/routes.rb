@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  require 'sidekiq/web'
   resources :holidays
 
   devise_for :users, controllers: {registrations: "registrations"}
@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     unauthenticated do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
+  end
+  
+  authenticate :user do
+    mount Sidekiq::Web => '/sidekiq'
   end
 
 
